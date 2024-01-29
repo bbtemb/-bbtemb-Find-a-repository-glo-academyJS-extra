@@ -1,5 +1,5 @@
 'use strict';
-let lang = 'ru';
+const lang = 'en';
 console.log('lang: ', lang);
 
 if (lang == 'ru') {
@@ -29,7 +29,7 @@ switch (lang) {
     console.log('Недопустимое значение переменной');
 }
 
-let langArray = [
+const langArray = [
   [
     'ru',
     'Понедельник, Вторник, Среда, Четверг, Пятница, Суббота, Воскресенье.',
@@ -41,9 +41,13 @@ lang == langArray[0][0]
   ? console.log(langArray[0][1])
   : console.log(langArray[1][1]);
 
-let namePerson = 'Артем';
-namePerson !== 'Артем' && namePerson !== 'Александр'
-  ? console.log('студент')
-  : false;
-namePerson == 'Артем' ? console.log('директор') : false;
-namePerson == 'Александр' ? console.log('преподаватель') : false;
+const namePerson = 'Артем';
+
+let message =
+  namePerson === 'Артем'
+    ? 'директор'
+    : namePerson === 'Александр'
+    ? 'преподаватель'
+    : 'студент';
+
+console.log(message);
