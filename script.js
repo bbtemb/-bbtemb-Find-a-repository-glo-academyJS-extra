@@ -1,4 +1,5 @@
-let lang = 'en';
+'use strict';
+let lang = 'ru';
 console.log('lang: ', lang);
 
 if (lang == 'ru') {
