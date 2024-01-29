@@ -1,51 +1,48 @@
-let num = 266219;
-let multiplyRes = 1;
-// console.log(num.toString().length);
+let lang = 'en';
+console.log('lang: ', lang);
 
-// console.log(Math.floor((num % 10 ** 1) / 10 ** 0));
-// console.log(Math.floor((num % 10 ** 2) / 10 ** 1));
-// console.log(Math.floor((num % 10 ** 3) / 10 ** 2));
-// console.log(Math.floor((num % 10 ** 4) / 10 ** 3));
-// console.log(Math.floor((num % 10 ** 5) / 10 ** 4));
-// console.log(Math.floor((num % 10 ** 6) / 10 ** 5));
-
-for (
-  let digitPosition = 1;
-  digitPosition <= num.toString().length;
-  digitPosition++
-) {
-  let digit = Math.floor(
-    (num % 10 ** digitPosition) / 10 ** (digitPosition - 1)
+if (lang == 'ru') {
+  console.log(
+    'Понедельник, Вторник, Среда, Четверг, Пятница, Суббота, Воскресенье.'
   );
-  multiplyRes = multiplyRes * digit;
+} else if (lang == 'en') {
+  console.log(
+    'Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday.'
+  );
+} else {
+  console.log('Недопустимое значение переменной');
 }
 
-console.log('multiplyRes: ', multiplyRes);
-
-let multiplyResCubed = multiplyRes ** 3;
-
-console.log('multiplyResCubed: ', multiplyResCubed);
-
-let array2 = [];
-
-for (
-  let digitPosition = 1;
-  digitPosition <= multiplyResCubed.toString().length;
-  digitPosition++
-) {
-  let digit = Math.floor(
-    (multiplyResCubed % 10 ** digitPosition) / 10 ** (digitPosition - 1)
-  );
-  array2.push(String(digit));
+switch (lang) {
+  case 'ru':
+    console.log(
+      'Понедельник, Вторник, Среда, Четверг, Пятница, Суббота, Воскресенье.'
+    );
+    break;
+  case 'en':
+    console.log(
+      'Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday.'
+    );
+    break;
+  default:
+    console.log('Недопустимое значение переменной');
 }
 
-array2 = array2.reverse();
-// console.log('array2: ', array2);
-let firstTwoDigits = Number(array2[0] + array2[1]);
-console.log('firstTwoDigits: ', firstTwoDigits);
+let langArray = [
+  [
+    'ru',
+    'Понедельник, Вторник, Среда, Четверг, Пятница, Суббота, Воскресенье.',
+  ],
+  ['en', 'Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday.'],
+];
 
-// Решение без цикла
+lang == langArray[0][0]
+  ? console.log(langArray[0][1])
+  : console.log(langArray[1][1]);
 
-let array1 = Array.from(multiplyResCubed.toString(), String);
-let firstTwoDigits2 = Number(array1[0] + array1[1]);
-console.log('firstTwoDigits2: ', firstTwoDigits2);
+let namePerson = 'Артем';
+namePerson !== 'Артем' && namePerson !== 'Александр'
+  ? console.log('студент')
+  : false;
+namePerson == 'Артем' ? console.log('директор') : false;
+namePerson == 'Александр' ? console.log('преподаватель') : false;
