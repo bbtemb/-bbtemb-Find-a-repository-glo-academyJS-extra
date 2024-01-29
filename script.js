@@ -14,7 +14,9 @@ for (
   digitPosition <= num.toString().length;
   digitPosition++
 ) {
-  digit = Math.floor((num % 10 ** digitPosition) / 10 ** (digitPosition - 1));
+  let digit = Math.floor(
+    (num % 10 ** digitPosition) / 10 ** (digitPosition - 1)
+  );
   multiplyRes = multiplyRes * digit;
 }
 
@@ -31,7 +33,7 @@ for (
   digitPosition <= multiplyResCubed.toString().length;
   digitPosition++
 ) {
-  digit = Math.floor(
+  let digit = Math.floor(
     (multiplyResCubed % 10 ** digitPosition) / 10 ** (digitPosition - 1)
   );
   array2.push(String(digit));
