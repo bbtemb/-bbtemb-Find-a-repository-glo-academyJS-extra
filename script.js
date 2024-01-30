@@ -1,53 +1,25 @@
 'use strict';
-const lang = 'en';
-console.log('lang: ', lang);
 
-if (lang == 'ru') {
-  console.log(
-    'Понедельник, Вторник, Среда, Четверг, Пятница, Суббота, Воскресенье.'
-  );
-} else if (lang == 'en') {
-  console.log(
-    'Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday.'
-  );
-} else {
-  console.log('Недопустимое значение переменной');
-}
+const notAString = 123;
+const moreThan30 = 'ааааааааааааааааааааааааааааааа';
+const lessThan30 = 'Меньше 30 символов';
+const moreThan30WithSpaces =
+  '             ааааааааааааааааааааааааааа                   ';
 
-switch (lang) {
-  case 'ru':
-    console.log(
-      'Понедельник, Вторник, Среда, Четверг, Пятница, Суббота, Воскресенье.'
-    );
-    break;
-  case 'en':
-    console.log(
-      'Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday.'
-    );
-    break;
-  default:
-    console.log('Недопустимое значение переменной');
-}
+const getShotrer = function (str) {
+  if (typeof str !== 'string') {
+    return 'Данные не являются строкой';
+  } else {
+    str = str.trim();
+    if (str.length > '30') {
+      return str.slice(0, 29) + '…';
+    } else {
+      return str;
+    }
+  }
+};
 
-const langArray = [
-  [
-    'ru',
-    'Понедельник, Вторник, Среда, Четверг, Пятница, Суббота, Воскресенье.',
-  ],
-  ['en', 'Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday.'],
-];
-
-lang == langArray[0][0]
-  ? console.log(langArray[0][1])
-  : console.log(langArray[1][1]);
-
-const namePerson = 'Артем';
-
-let message =
-  namePerson === 'Артем'
-    ? 'директор'
-    : namePerson === 'Александр'
-    ? 'преподаватель'
-    : 'студент';
-
-console.log(message);
+console.log(getShotrer(notAString));
+console.log(getShotrer(moreThan30));
+console.log(getShotrer(lessThan30));
+console.log(getShotrer(moreThan30WithSpaces));
