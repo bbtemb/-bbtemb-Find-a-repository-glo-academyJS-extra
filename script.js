@@ -1,27 +1,23 @@
 'use strict';
 
-const notAString = 123;
-const moreThan30 = 'аааааааааааааааааааааааааааааааaaaaaaaaaaaaaaaaaaaa';
-const lessThan30 = 'Меньше 30 символов';
-const moreThan30WithSpaces =
-  '             ааааааааааааааааааааааааааа                   ';
+let arr = ['25', '45', '55', '52', '76', '226', '4000'];
+let divCount = 0;
 
-const getShotrer = function (str) {
-  if (typeof str !== 'string') {
-    return 'Данные не являются строкой';
-  } else {
-    str = str.trim();
-    if (str.length > 30) {
-      return str.slice(0, 30) + '…';
-    } else {
-      return str;
-    }
+for (let i = 0; i < 7; i++) {
+  if (
+    Math.floor(arr[i] / 10 ** (arr[i].length - 1)) === 2 ||
+    Math.floor(arr[i] / 10 ** (arr[i].length - 1)) === 4
+  )
+    console.log(arr[i]);
+}
+
+for (let i = 2; i <= 100; i++) {
+  for (let j = 1; j <= i; j++) {
+    if (i % j == 0) divCount++;
   }
-};
 
-console.log(getShotrer(notAString));
-console.log(getShotrer(moreThan30));
-console.log(getShotrer(lessThan30));
-console.log(getShotrer(moreThan30WithSpaces));
-
-console.log(typeof moreThan30.length);
+  if (divCount == 2) {
+    console.log(i, '- Делители этого числа: 1', 'и', i);
+  }
+  divCount = 0;
+}
