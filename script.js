@@ -3,11 +3,12 @@
 let arr = ['25', '45', '55', '52', '76', '226', '4000'];
 let divCount = 0;
 
-for (let i = 0; i < 7; i++) {
-  if (
-    Math.floor(arr[i] / 10 ** (arr[i].length - 1)) === 2 ||
-    Math.floor(arr[i] / 10 ** (arr[i].length - 1)) === 4
-  )
+for (let i = 0; i < arr.length; i++) {
+  if (arr[i].charAt(0) === '2' || arr[i].charAt(0) === '4') console.log(arr[i]);
+}
+
+for (let i = 0; i < arr.length; i++) {
+  if (arr[i].startsWith('2') === true || arr[i].startsWith('4') === true)
     console.log(arr[i]);
 }
 
