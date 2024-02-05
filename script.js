@@ -1,24 +1,49 @@
 'use strict';
 
-let arr = ['25', '45', '55', '52', '76', '226', '4000'];
-let divCount = 0;
+let outputString = '';
+let arrayOutput = document.querySelector('#array__output');
 
-for (let i = 0; i < arr.length; i++) {
-  if (arr[i].charAt(0) === '2' || arr[i].charAt(0) === '4') console.log(arr[i]);
-}
+const week = [
+  'Понедельник',
+  'Вторник',
+  'Среда',
+  'Четверг',
+  'Пятница',
+  'Суббота',
+  'Воскресенье',
+];
 
-for (let i = 0; i < arr.length; i++) {
-  if (arr[i].startsWith('2') === true || arr[i].startsWith('4') === true)
-    console.log(arr[i]);
-}
-
-for (let i = 2; i <= 100; i++) {
-  for (let j = 1; j <= i; j++) {
-    if (i % j == 0) divCount++;
+const now = function () {
+  switch (new Date().getDay()) {
+    case 1:
+      return 'Понедельник';
+    case 2:
+      return 'Вторник';
+    case 3:
+      return 'Среда';
+    case 4:
+      return 'Четверг';
+    case 5:
+      return 'Пятница';
+    case 6:
+      return 'Суббота';
+    case 0:
+      return 'Воскресенье';
   }
+};
 
-  if (divCount == 2) {
-    console.log(i, '- Делители этого числа: 1', 'и', i);
+const prettyWeek = week.map(function (item) {
+  if (item === now()) {
+    return (item = '<p><b>' + item + '</b></p>');
+  } else if (item === 'Суббота' || item === 'Воскресенье') {
+    return (item = '<p><i>' + item + '</i></p>');
+  } else {
+    return (item = '<p>' + item + '</p>');
   }
-  divCount = 0;
-}
+});
+
+prettyWeek.forEach(function (item) {
+  outputString = outputString + item;
+});
+
+arrayOutput.innerHTML = outputString;
